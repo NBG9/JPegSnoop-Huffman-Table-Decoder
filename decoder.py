@@ -1,4 +1,4 @@
-# Find Valptr, Mincode, Maxcode from JpegSnoop (DHT) Huffman tables
+# Find Valptr, Mincode, Maxcode and Huffval from JpegSnoop (DHT) Huffman tables
 
 # Huffman table
 t = """Codes of length 01 bits (000 total): 
@@ -17,6 +17,7 @@ t = """Codes of length 01 bits (000 total):
     Codes of length 14 bits (000 total): 
     Codes of length 15 bits (000 total): 
     Codes of length 16 bits (000 total):"""
+
 
 # Split lines
 lines = t.split("Codes of length")
@@ -67,6 +68,13 @@ for i, line in enumerate(lines2d):
     maxval[i]=p
     p=2*(p+1)
 
+# Find HuffVals of table
+huffvals = []
+for val in lines2d:
+    for val2 in val:
+        if val2 != 0 and val2 != '':
+            huffvals.append(val2)
+
 # Print output
 print("valptr: ")
 print(valptr)
@@ -74,6 +82,10 @@ print("min: ")
 print(minval)
 print("max: ")
 print(maxval)
+print("Huffval: ")
+print(huffvals)
+
+
 
 # Sample output:
 
@@ -83,3 +95,9 @@ print(maxval)
 # [0, 0, 2, 14, 30, 62, 126, 254, 510, 0, 0, 0, 0, 0, 0, 0]
 # max: 
 # [-1, 0, 6, 14, 30, 62, 126, 254, 510, -1, -1, -1, -1, -1, -1, -1]
+# Huffval: 
+# [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+
+
+
