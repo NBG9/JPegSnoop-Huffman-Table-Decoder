@@ -1,6 +1,6 @@
 # Find Valptr, Mincode, Maxcode and Huffval from JpegSnoop (DHT) Huffman tables
 
-# Huffman table
+# Sample Huffman table
 t = """Codes of length 01 bits (000 total): 
     Codes of length 02 bits (001 total): 00 
     Codes of length 03 bits (005 total): 01 02 03 04 05 
